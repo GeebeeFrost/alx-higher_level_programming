@@ -1,4 +1,7 @@
-#Test files
+# Test files
 *main.c
 10-linked_lists.c
 *main.py
+
+# Python utilities
+__pycache__/
