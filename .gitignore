@@ -5,3 +5,6 @@
 
 # Python utilities
 __pycache__/
+
+# Misc
+hidden_4.pyc
