@@ -1,1 +1,1 @@
-Directory created for Pyton - import & modules project
+Directory created for Python - import & modules project
