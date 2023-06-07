@@ -1,0 +1,56 @@
+Documentation for 3-say_my_name.py
+==================================
+
+The module has a function say_my_name that takes two names as strings and prints them in an introduction format.
+
+Usage
+=====
+	say_my_name(first_name, last_name) prints My name is <first_name> <last_name>
+	first_name is required argument - must be a string
+	last_name is optional argument - must be a string or defaults to ""
+
+Importing the function from the module:
+
+	>>> sy = __import__('3-say_my_name').say_my_name
+
+Success output 
+==============
+
+Two strings:
+
+	>>> sy("Geebee", "Frost")
+	My name is Geebee Frost
+
+One string for first_name and empty string for last_name:
+
+	>>> sy("Hypotherm")
+	My name is Hypotherm 
+
+
+Error output
+============
+
+list for first_name and string for last_name:
+
+	>>> sy([1, "Micah"], "Richards")
+	Traceback (most recent call last):
+	TypeError: first_name must be a string
+
+string for first_name and tuple for last_name:
+
+	>>> sy("Armin", (0, "Arlert"))
+	Traceback (most recent call last):
+	TypeError: last_name must be a string
+
+None for first_name:
+
+	>>> sy(None)
+	Traceback (most recent call last):
+	TypeError: first_name must be a string
+
+no arguments:
+
+	>>> sy()
+	Traceback (most recent call last):
+	TypeError: say_my_name() missing 1 required positional argument: 'first_name'
+	
