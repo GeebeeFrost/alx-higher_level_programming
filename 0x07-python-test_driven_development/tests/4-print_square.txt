@@ -1,0 +1,45 @@
+Documentation for 4-print_square.py
+===================================
+
+The module has a print_square function that prints a square with # characters
+
+Usage
+=====
+
+	print_square(size) prints a <size>-sided square with # characters
+	size is required argument - must be a postive integer
+
+Importing function from module:
+
+	>>> psq = __import__('4-print_square').print_square
+
+
+Normal output
+=============
+
+integer for size:
+
+	>>> psq(2)
+	##
+	##
+
+Error output
+============
+
+negative integer for size:
+
+	>>> psq(-1)
+	Traceback (most recent call last):
+	ValueError: size must be >= 0
+
+float for size:
+
+	>>> psq(2.5)
+	Traceback (most recent call last):
+	TypeError: size must be an integer
+
+no arguments:
+
+	>>> psq()
+	Traceback (most recent call last):
+	TypeError: print_square() missing 1 required positional argument: 'size'
