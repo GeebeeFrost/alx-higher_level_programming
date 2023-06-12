@@ -31,3 +31,28 @@ Using print_sorted method:
 
 	>>> new_list.print_sorted()
 	[10, 20, 30, 40, 50]
+
+Passing a list object:
+
+	>>> ls = [87, 54, 40]
+	>>> another_list = MyList(ls)
+	>>> another_list.print_sorted()
+	[40, 54, 87]
+
+Passing an empty list:
+
+	>>> ls = []
+	>>> another_list = MyList(ls)
+	>>> another_list.print_sorted()
+	[]
+
+Error output:
+
+	>>> err_list.print_sorted()
+	Traceback (most recent call last):
+	NameError: name 'err_list' is not defined
+	
+	>>> err_list = [3, 4, 5]
+	>>> err_list.print_sorted()
+	Traceback (most recent call last):
+	AttributeError: 'list' object has no attribute 'print_sorted'
