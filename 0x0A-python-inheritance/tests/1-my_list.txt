@@ -31,6 +31,8 @@ Using print_sorted method:
 
 	>>> new_list.print_sorted()
 	[10, 20, 30, 40, 50]
+	>>> print(new_list)
+	[20, 10, 50, 30, 40]
 
 Passing a list object:
 
