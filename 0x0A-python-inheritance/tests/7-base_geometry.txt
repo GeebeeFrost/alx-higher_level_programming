@@ -5,6 +5,24 @@ Importing the class from the module:
 
 >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
+Checking for module, class and method docstrings:
+
+>>> mod = __import__('7-base_geometry').__doc__
+>>> len(mod) > 1
+True
+
+>>> scl = __import__('7-base_geometry').BaseGeometry.__doc__
+>>> len(scl) > 1
+True
+
+>>> meth1 = __import__('7-base_geometry').BaseGeometry.area.__doc__
+>>> len(meth1) > 1
+True
+
+>>> meth2 = __import__('7-base_geometry').BaseGeometry.integer_validator.__doc__
+>>> len(meth2) > 1
+True
+
 Creating an instance of the class:
 
 >>> bg = BaseGeometry()
