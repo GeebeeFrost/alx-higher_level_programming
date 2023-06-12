@@ -1,0 +1,33 @@
+Documentation for 1-my_list.py
+==============================
+The module contains the implementation of the MyList class
+
+Usage
+=====
+	a_list = MyList() creates a new instance of the MyList class which inherits from list
+
+Importing the class from the module:
+
+	>>> MyList = __import__('1-my_list').MyList
+
+Creating a new instance of the class:
+
+	>>> new_list = MyList()
+
+Appending elements to the instance:
+
+	>>> new_list.append(20)
+	>>> new_list.append(10)
+	>>> new_list.append(50)
+	>>> new_list.append(30)
+	>>> new_list.append(40)
+
+Printing elements of the instance:
+
+	>>> print(new_list)
+	[20, 10, 50, 30, 40]
+
+Using print_sorted method:
+
+	>>> new_list.print_sorted()
+	[10, 20, 30, 40, 50]
