@@ -46,6 +46,38 @@ Passing an empty list:
 	>>> another_list.print_sorted()
 	[]
 
+List of only 1 number:
+
+	>>> mine = MyList()
+	>>> mine.append(2)
+	>>> print(mine)
+	[2]
+	>>> mine.print_sorted()
+	[2]
+
+List of same numbers:
+	
+	>>> yours = MyList()
+	>>> yours.append(1)
+	>>> yours.append(1)
+	>>> yours.append(1)
+	>>> yours.append(1)
+	>>> print(yours)
+	[1, 1, 1, 1]
+	>>> yours.print_sorted()
+	[1, 1, 1, 1]
+
+List of negative numbers:
+
+	>>> theirs = MyList()
+	>>> theirs.append(-5)
+	>>> theirs.append(1)
+	>>> theirs.append(-20)
+	>>> theirs.append(-35)
+	>>> theirs.append(5)
+	>>> theirs.print_sorted()
+	[-35, -20, -5, 1, 5]
+
 Error output:
 
 	>>> err_list.print_sorted()
