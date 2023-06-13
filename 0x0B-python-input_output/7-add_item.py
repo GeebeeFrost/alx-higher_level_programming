@@ -7,7 +7,7 @@ if __name__ == "__main__":
     ls = sys.argv[1:]
     try:
         items = load("add_item.json")
-    except:
+    except Exception:
         save(ls, "add_item.json")
     else:
         for arg in ls:
