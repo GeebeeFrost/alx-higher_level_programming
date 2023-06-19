@@ -2,6 +2,9 @@
 """This module contains unit test cases for the rectangle.py module"""
 import unittest
 from models.rectangle import Rectangle
+from contextlib import redirect_stdout
+from io import StringIO
+import sys
 
 
 class TestRectangleClass(unittest.TestCase):
@@ -50,6 +53,14 @@ class TestRectangleClass(unittest.TestCase):
         self.r1.width = 10
         self.r1.height = 2
         self.assertEqual(self.r1.area(), 20)
+
+    def test_6_display(self):
+        """Test display function"""
+        with self.assertRaises(TypeError):
+            self.r1.display(1)
+            self.r1.display([2, 3], "dsd")
+            self.r1.display({34})
+            self.r1.display((4, 5))
 
 
 if __name__ == "__main__":
