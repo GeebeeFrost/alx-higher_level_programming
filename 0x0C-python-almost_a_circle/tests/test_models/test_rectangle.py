@@ -55,7 +55,14 @@ class TestRectangleClass(unittest.TestCase):
         self.assertEqual(self.r1.area(), 20)
 
     def test_6_display(self):
-        """Test display function"""
+        """Test display function without x and y"""
+        displayed = StringIO()
+        sys.stdout = displayed
+        self.r1.display()
+        sys.stdout = sys.__stdout__
+        expected = ("##########\n"
+                    + "##########\n")
+        self.assertEqual(displayed.getvalue(), expected)
         with self.assertRaises(TypeError):
             self.r1.display(1)
             self.r1.display([2, 3], "dsd")
@@ -64,12 +71,21 @@ class TestRectangleClass(unittest.TestCase):
 
     def test_7_str(self):
         """Test magic __str__ function"""
-        exOutput = "[Rectangle] ({}) {}/{} - {}/{}".format(self.r1.id,
-                                                           self.r1.x,
-                                                           self.r1.y,
-                                                           self.r1.width,
-                                                           self.r1.height)
+        exOutput = ("[Rectangle] ({}) "
+                    + "{}/{} - {}/{}").format(self.r1.id, self.r1.x,
+                                              self.r1.y, self.r1.width,
+                                              self.r1.height)
         self.assertEqual(str(self.r1), exOutput)
+
+    def test_8_display(self):
+        """Test display function taking care of x and y"""
+        self.r1 = Rectangle(2, 3, 2, 2)
+        displayed = StringIO()
+        sys.stdout = displayed
+        self.r1.display()
+        sys.stdout = sys.__stdout__
+        expected = ("\n\n  ##\n  ##\n  ##\n")
+        self.assertEqual(displayed.getvalue(), expected)
 
 
 if __name__ == "__main__":
