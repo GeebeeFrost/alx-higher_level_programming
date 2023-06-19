@@ -12,10 +12,30 @@ class Rectangle(Base):
         self.x = x
         self.y = y
 
+    def __str__(self):
+        return ("[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.x,
+                                                        self.y, self.width,
+                                                        self.height))
+
     @property
     def width(self):
         """Defines the width of a rectangle"""
         return self.__width
+
+    @property
+    def height(self):
+        """Defines the height of a rectangle"""
+        return self.__height
+
+    @property
+    def x(self):
+        """Defines the x-attribute of a rectangle"""
+        return self.__x
+
+    @property
+    def y(self):
+        """Defines the y-attribute of a rectangle"""
+        return self.__y
 
     @width.setter
     def width(self, value):
@@ -25,11 +45,6 @@ class Rectangle(Base):
             raise ValueError("width must be > 0")
         self.__width = value
 
-    @property
-    def height(self):
-        """Defines the height of a rectangle"""
-        return self.__height
-
     @height.setter
     def height(self, value):
         if type(value) is not int:
@@ -38,11 +53,6 @@ class Rectangle(Base):
             raise ValueError("height must be > 0")
         self.__height = value
 
-    @property
-    def x(self):
-        """Defines the x-attribute of a rectangle"""
-        return self.__x
-
     @x.setter
     def x(self, value):
         if type(value) is not int:
@@ -50,11 +60,6 @@ class Rectangle(Base):
         if value < 0:
             raise ValueError("x must be >= 0")
         self.__x = value
-
-    @property
-    def y(self):
-        """Defines the y-attribute of a rectangle"""
-        return self.__y
 
     @y.setter
     def y(self, value):
@@ -74,4 +79,3 @@ class Rectangle(Base):
             for j in range(self.width):
                 print("#", end='')
             print()
-

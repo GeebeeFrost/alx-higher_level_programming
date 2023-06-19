@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """This module contains unit test cases for the rectangle.py module"""
-import unittest
 from models.rectangle import Rectangle
-from contextlib import redirect_stdout
+import unittest
+from unittest.mock import patch
 from io import StringIO
 import sys
 
@@ -61,6 +61,15 @@ class TestRectangleClass(unittest.TestCase):
             self.r1.display([2, 3], "dsd")
             self.r1.display({34})
             self.r1.display((4, 5))
+
+    def test_7_str(self):
+        """Test magic __str__ function"""
+        exOutput = "[Rectangle] ({}) {}/{} - {}/{}".format(self.r1.id,
+                                                           self.r1.x,
+                                                           self.r1.y,
+                                                           self.r1.width,
+                                                           self.r1.height)
+        self.assertEqual(str(self.r1), exOutput)
 
 
 if __name__ == "__main__":
