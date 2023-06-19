@@ -45,6 +45,12 @@ class TestRectangleClass(unittest.TestCase):
             self.r1.x = -2
             self.r1.y = -3
 
+    def test_5_area(self):
+        """Test area function"""
+        self.r1.width = 10
+        self.r1.height = 2
+        self.assertEqual(self.r1.area(), 20)
+
 
 if __name__ == "__main__":
     unittest.main()
