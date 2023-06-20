@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """This module contains the base class"""
 import json
+import os
 
 
 class Base:
@@ -39,6 +40,20 @@ class Base:
                 ls_dict = [obj.to_dictionary() for obj in list_objs]
                 f.write(Base.to_json_string(ls_dict))
 
+    @classmethod
+    def load_from_file(cls):
+        """Returns a list of instances of the calling class from a file"""
+        filename = "{}.json".format(cls.__name__)
+        ls_instances = []
+        ls_dicts = []
+        if os.path.exists(filename):
+            with open(filename, mode='r') as f:
+                js = f.read()
+                ls_dicts = cls.from_json_string(js)
+                for dct in ls_dicts:
+                    ls_instances.append(cls.create(**dct))
+        return ls_instances
+    
     @classmethod
     def create(cls, **dictionary):
         """Returns an instance with all attributes already set"""
