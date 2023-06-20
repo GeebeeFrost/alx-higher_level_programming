@@ -53,7 +53,7 @@ class Base:
                 for dct in ls_dicts:
                     ls_instances.append(cls.create(**dct))
         return ls_instances
-    
+
     @classmethod
     def create(cls, **dictionary):
         """Returns an instance with all attributes already set"""
