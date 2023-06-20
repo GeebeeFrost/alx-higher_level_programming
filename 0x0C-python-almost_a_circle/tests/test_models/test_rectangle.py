@@ -19,7 +19,9 @@ class TestRectangleClass(unittest.TestCase):
 
     def test_1_width_height(self):
         """Test when width and height are integers"""
+        self.r2 = Rectangle(1, 2, 3, 4, 5)
         self.assertEqual(self.r1.id, 3)
+        self.assertEqual(self.r2.id, 5)
         self.assertEqual(self.r1.height, 2)
         self.assertEqual(self.r1.width, 10)
 
@@ -86,6 +88,21 @@ class TestRectangleClass(unittest.TestCase):
         sys.stdout = sys.__stdout__
         expected = ("\n\n  ##\n  ##\n  ##\n")
         self.assertEqual(displayed.getvalue(), expected)
+
+    def test_9_init_errors(self):
+        """Test the correct errors are raised on initialization"""
+        with self.assertRaises(TypeError):
+            self.r2 = Rectangle("1", 2)
+            self.r2 = Rectangle(1, "2")
+            self.r2 = Rectangle(1, 2, "3")
+            self.r2 = Rectangle(1, 2, 3, "4")
+        with self.assertRaises(ValueError):
+            self.r2 = Rectangle(-1, 2)
+            self.r2 = Rectangle(1, -2)
+            self.r2 = Rectangle(0, 2)
+            self.r2 = Rectangle(1, 0)
+            self.r2 = Rectangle(1, 2, -3)
+            self.r2 = Rectangle(1, 2, 3, -4)
 
 
 if __name__ == "__main__":
