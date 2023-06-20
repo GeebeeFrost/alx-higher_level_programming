@@ -31,3 +31,10 @@ class Base:
             else:
                 ls_dict = [obj.to_dictionary() for obj in list_objs]
                 f.write(Base.to_json_string(ls_dict))
+
+    @staticmethod
+    def from_json_string(json_string):
+        """Returns a list of dicts represented by a JSON string"""
+        if json_string is None or not json_string:
+            return []
+        return json.loads(json_string)
