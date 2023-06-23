@@ -2,6 +2,7 @@
 """This module contains the base class"""
 import json
 import os
+import csv
 
 
 class Base:
@@ -63,3 +64,36 @@ class Base:
             dum = cls(4)
         dum.update(**dictionary)
         return dum
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """Writes the CSV representation of list of objects to a file"""
+        filename = "{}.csv".format(cls.__name__)
+        with open(filename, mode="w", encoding="utf-8") as f:
+            if list_objs is None or len(list_objs) < 1:
+                f.write("[]")
+            else:
+                if cls.__name__ == "Rectangle":
+                    fields = ["id", "width", "height", "x", "y"]
+                elif cls.__name__ == "Square":
+                    fields = ["id", "size", "x", "y"]
+                writer = csv.DictWriter(f, fieldnames=fields)
+                for obj in list_objs:
+                    writer.writerow(obj.to_dictionary())
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """"Returns a list of instances of the calling class from a file"""
+        filename = "{}.csv".format(cls.__name__)
+        try:
+            with open(filename, mode="r", newline="") as f:
+                if cls.__name__ == "Rectangle":
+                    fields = ["id", "width", "height", "x", "y"]
+                elif cls.__name__ == "Square":
+                    fields = ["id", "size", "x", "y"]
+                reader = csv.DictReader(f, fields)
+                list_dicts = [dict([k, int(v)]
+                                   for k, v in d.items()) for d in reader]
+                return [cls.create(**d) for d in list_dicts]
+        except IOError:
+            return []
