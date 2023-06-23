@@ -10,3 +10,4 @@ __pycache__/
 # Misc
 hidden_4.pyc
 .vscode/
+.vagrant.d
