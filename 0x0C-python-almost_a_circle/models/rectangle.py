@@ -5,7 +5,9 @@ from models.base import Base
 
 class Rectangle(Base):
     """Defines a rectangle"""
+
     def __init__(self, width, height, x=0, y=0, id=None):
+        """Creates a new rectangle"""
         super().__init__(id)
         self.width = width
         self.height = height
@@ -13,6 +15,7 @@ class Rectangle(Base):
         self.y = y
 
     def __str__(self):
+        """Returns a string representation of an instance"""
         return ("[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.x,
                                                         self.y, self.width,
                                                         self.height))
@@ -39,6 +42,7 @@ class Rectangle(Base):
 
     @width.setter
     def width(self, value):
+        """Setter for width attribute"""
         if type(value) is not int:
             raise TypeError("width must be an integer")
         if value <= 0:
@@ -47,6 +51,7 @@ class Rectangle(Base):
 
     @height.setter
     def height(self, value):
+        """Setter for height attribute"""
         if type(value) is not int:
             raise TypeError("height must be an integer")
         if value <= 0:
@@ -55,6 +60,7 @@ class Rectangle(Base):
 
     @x.setter
     def x(self, value):
+        """Setter for x attribute"""
         if type(value) is not int:
             raise TypeError("x must be an integer")
         if value < 0:
@@ -63,6 +69,7 @@ class Rectangle(Base):
 
     @y.setter
     def y(self, value):
+        """Setter for y attribute"""
         if type(value) is not int:
             raise TypeError("y must be an integer")
         if value < 0:
@@ -91,7 +98,7 @@ class Rectangle(Base):
             for arg in args:
                 if i == 0:
                     if arg is None:
-                        self.__init(self.width, self.height, self.x, self.y)
+                        self.__init__(self.width, self.height, self.x, self.y)
                     else:
                         self.id = arg
                 elif i == 1:
