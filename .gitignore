@@ -15,3 +15,7 @@ __pycache__/
 hidden_4.pyc
 .vscode/
 .vagrant.d
+
+# Temp files
+*.swp
+*~
