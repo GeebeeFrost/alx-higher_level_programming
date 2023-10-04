@@ -7,6 +7,7 @@
 *data.js
 0x0F-python-object_relational_mapping/*.sql
 6-model_state.py
+*main.html
 
 # Python utilities
 __pycache__/
